@@ -43,11 +43,20 @@ class ProcessSalaries(ProcessJobs):
             or (isinstance(salary, str) and salary.isdigit())
         ):
             raise ValueError("salary não é um número inteiro ou string num")
-        
+    
         salary = float(salary)
         return min_salary <= salary <= max_salary
 
     def filter_by_salary_range(
         self, jobs: List[dict], salary: Union[str, int]
     ) -> List[Dict]:
-        pass
+        filtered_jobs = []
+
+        for job in jobs:
+            try:
+                if self.matches_salary_range(job, salary):
+                    filtered_jobs.append(job)
+            except ValueError:
+                pass
+
+        return filtered_jobs
