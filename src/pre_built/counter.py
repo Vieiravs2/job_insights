@@ -4,4 +4,4 @@ def count_ocurrences(path: str, word: str) -> int:
     word_count = read_data.lower().count(word.lower())
     return word_count
 
-print(count_ocurrences("data/jobs.csv", "Bachelor's"))
+
