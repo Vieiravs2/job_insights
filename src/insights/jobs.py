@@ -11,7 +11,7 @@ class ProcessJobs:
             self.jobs_list = list(csv.DictReader(file))
 
     def get_unique_job_types(self) -> List[str]:
-        pass
+        return list(set(job["job_type"] for job in self.jobs_list))
 
     def filter_by_multiple_criteria(self) -> List[dict]:
         pass
